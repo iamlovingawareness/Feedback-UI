@@ -5,8 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 import { useContext } from "react";
 import FeedbackContext from "../Context/FeedbackContext";
 
-const Feedbacklist = ({ handleDelete }) => {
-  const { feedback } = useContext(FeedbackContext);
+const Feedbacklist = () => {
+  const { feedback, deleteFeedback } = useContext(FeedbackContext);
+  console.log(feedback);
   return (
     <div>
       <AnimatePresence>
@@ -21,7 +22,6 @@ const Feedbacklist = ({ handleDelete }) => {
               id={uuidv4()}
               item={item}
               reverse={(idx + 1) % 2 === 0 ? true : false}
-              handleDelete={handleDelete}
             />
           </motion.div>
         ))}
